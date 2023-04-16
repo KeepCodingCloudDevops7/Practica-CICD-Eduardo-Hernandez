@@ -112,6 +112,7 @@ pipeline {
           steps {
             echo 'Executing App'
             sh 'mvn package'
+            archiveArtifacts 'target/*.jar'
           }
         }
 
@@ -125,6 +126,7 @@ pipeline {
           steps {
             echo 'Executing App'
             sh 'mvn package'
+            archiveArtifacts 'target/*.jar'
           }
         }
 
