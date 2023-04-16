@@ -17,5 +17,3 @@ sleep 10
 docker exec $JENKINS_CONTAINER_NAME bash -c "apt-get update -y -q && apt-get upgrade -y -q && apt-get install -y -q maven git python3 python3-venv nano"
 docker exec $JENKINS_CONTAINER_NAME_2 bash -c "apt-get update -y -q && apt-get upgrade -y -q && apt-get install -y -q maven git python3 python3-venv nano"
 
-# docker exec -u jenkins $JENKINS_CONTAINER_NAME bash -c "git config --global http.sslverify false"
-# docker exec -u jenkins $JENKINS_CONTAINER_NAME_2 bash -c "git config --global http.sslVerify false"
