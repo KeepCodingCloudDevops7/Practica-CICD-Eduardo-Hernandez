@@ -133,34 +133,5 @@ pipeline {
       }
     }
 
-    stage('OK') {
-      parallel {
-        stage('OK') {
-          agent {
-            node {
-              label 'Ag1'
-            }
-
-          }
-          steps {
-            echo 'OK'
-          }
-        }
-
-        stage('') {
-          agent {
-            node {
-              label 'Ag2'
-            }
-
-          }
-          steps {
-            echo 'OK'
-          }
-        }
-
-      }
-    }
-
   }
 }
