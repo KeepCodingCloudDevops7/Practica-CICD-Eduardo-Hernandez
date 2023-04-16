@@ -100,6 +100,7 @@ pipeline {
       }
     }
 
+<<<<<<< HEAD
     stage('Packaging') {
       parallel {
         stage('Packaging  Test') {
@@ -133,5 +134,7 @@ pipeline {
       }
     }
 
+=======
+>>>>>>> origin/develop
   }
 }
