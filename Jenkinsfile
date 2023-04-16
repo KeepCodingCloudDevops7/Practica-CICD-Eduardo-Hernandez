@@ -40,11 +40,16 @@ pipeline {
     stage('Build') {
       parallel {
         stage('Build Test') {
+          agent {
+            node {
+              label 'Ag1'
+            }
+
+          }
           steps {
             echo 'Building Artifacts'
             sh '''mvn compile
 '''
-            archiveArtifacts 'Hello'
           }
         }
 
@@ -58,6 +63,37 @@ pipeline {
           steps {
             echo 'Building Artifacts'
             sh 'mvn compile'
+          }
+        }
+
+      }
+    }
+
+    stage('Test') {
+      parallel {
+        stage('Test') {
+          agent {
+            node {
+              label 'Ag1'
+            }
+
+          }
+          steps {
+            echo 'Running Tests'
+            sh 'mvn test'
+          }
+        }
+
+        stage('Test Production') {
+          agent {
+            node {
+              label 'Ag2'
+            }
+
+          }
+          steps {
+            echo 'Running Tests'
+            sh 'mvn test'
           }
         }
 
