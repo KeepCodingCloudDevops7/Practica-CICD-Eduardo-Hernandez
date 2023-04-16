@@ -1,0 +1,8 @@
+job('DSL test'){
+  triggers {
+    scm('*/2 * * * *')
+  }
+  steps{
+    mvn('compile')
+  }
+}   
