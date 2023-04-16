@@ -3,6 +3,6 @@ job('DSL test'){
     scm('*/2 * * * *')
   }
   steps{
-    mvn('compile')
+    maven('-e clean test')
   }
-}   
+}  
