@@ -100,9 +100,9 @@ pipeline {
       }
     }
 
-    stage('Execution') {
+    stage('Packaging') {
       parallel {
-        stage('Execution Test') {
+        stage('Packaging  Test') {
           agent {
             node {
               label 'Ag1'
@@ -111,11 +111,11 @@ pipeline {
           }
           steps {
             echo 'Executing App'
-            sh 'mvn exec:java'
+            sh 'mvn package'
           }
         }
 
-        stage('Execution In Production') {
+        stage('Packaging In Production') {
           agent {
             node {
               label 'Ag2'
@@ -124,7 +124,7 @@ pipeline {
           }
           steps {
             echo 'Executing App'
-            sh 'mvn exec:java'
+            sh 'mvn package'
           }
         }
 
